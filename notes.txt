@@ -1,0 +1,153 @@
+Заметки по мастер-классу Алексея Золотых по Dart & Flutter, 3-4 августа 2019, Code Inside
+
+-------------------------
+Окружение:
+1) Прежде всего это Dart.  Инструкция по установке: https://dart.dev/get-dart 
+2) Помимо Dart, из консоли должны быть доступны сопуствующие утилиты (pub, dart2js). После установки Dart пакетов должна быть возможность запускать эти пакеты из консоли.  
+Пример:  
+Запускаете pub global activate webdev
+Запускаете webdev
+Команда выводит на экран раздел помощи.
+Если нет – перменная PATH вам в помощь.
+
+3) Также нужно установить Flutter: https://flutter.dev/docs/get-started/install
+
+4) Редакторы: VSCode и AndroidStudio (Intellij Idea тоже подходит).  Хорошо бы помимо самих редакторов поставить соотвествующие плагины (Dart и Flutter). Возможно понадобится Docker.
+--------------------------
+
+1 Оптимизация хвостовой рекурсии
+
+void main() {
+ for (int i = 0; i < 10; i++) {
+   print(fib(i));
+ }
+}
+
+int fib(int n) {
+  if (n < 2) {
+    return n;
+  }
+  return fib(n-1) + fib(n-2);
+}
+
+
+-----
+List main() {
+ final foo = true;
+  return [
+    1,
+    2,
+    3,
+    if (foo) 4
+  ];
+}
+
+-----
+void main() {
+  _Hello.constructorName();
+}
+
+class _Hello {
+  _Hello();
+  
+  _Hello.constructorName() {
+    _Hello();
+  }
+ 
+}
+--------
+
+void main() {
+  _Hello.constructorName();
+}
+
+class _Hello {
+  const _Hello();
+  
+  _Hello.constructorName() {
+    _Hello();
+  }
+ 
+}
+
+------
+void main() {
+  
+}
+
+class _Hello {
+ void method1() {}
+ 
+}
+
+class Foo {
+  static Foo foo = Foo._();
+  
+  Foo._();
+  
+  factory Foo() {
+    return foo;
+  }
+}
+-------
+void main() {
+  
+}
+
+class _Hello {
+ void method1() {}
+ 
+}
+
+enum Test {First, Second}
+
+class Foo {
+  static Foo foo = Foo._();
+  
+  Foo._();
+  
+  factory Foo() {
+    Test.Second;
+    return foo;
+  }
+}
+
+---
+
+Написать реализацию enum
+
+---
+
+pub global activate -spath .
+
+---
+
+доклад Иван Тулуп - асинхронность
+
+
+----
+yield ??
+
+----
+
+--------
+FLUTTER
+--------
+
+flutter create --ios-language=swift --android-language=kotlin --project-name demo_flutter_app .
+
+---
+monkey pathing ??
+---
+
+https://apiary.io/
+http://www.mocky.io/
+
+----
+Alexey Zolotyh, [04.08.19 14:59]
+pub global activate stagehand
+
+Alexey Zolotyh, [04.08.19 14:59]
+pub global activate webdev
+
+----
